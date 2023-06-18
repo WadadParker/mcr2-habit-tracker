@@ -15,4 +15,6 @@
     padding: 1rem;
     border-radius: 0.5rem;
     font-size: 1.4rem;
+    max-width: fit-content;
+    min-width: 20rem;
 }
