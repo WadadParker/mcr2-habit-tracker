@@ -42,6 +42,16 @@ export const HabitProvider=({children})=>
                 const archiveItem=habit.habitList[payload];
                 return {...habit,habitList:updatedHabitList,archiveList:[...habit.archiveList,archiveItem]};    
 
+            case "TOGGLE_DETAILS":
+                const expandedHabit=habit.habitList.map((item,index)=>{
+                    if(index===input)
+                    {
+                        return {...item,expandDetail:payload}
+                    }
+                    return item;
+                })
+                return {...habit,habitList:expandedHabit}    
+
             default:
                 return habit;    
         }
@@ -49,11 +59,12 @@ export const HabitProvider=({children})=>
 
     const initialState={
         habitList:[],
-        inputFields:{name:"",repeat:"",goal:"",time:"",date:""},
+        inputFields:{name:"",repeat:"",goal:"",time:"",date:"",expandDetail:false},
         showModal:false,
         archiveList:[],
         habitIndex:'',
         editHabit:false,
+        expandDetails:false,
     }
 
     const [state,dispatch]=useReducer(habitReducer,initialState);
