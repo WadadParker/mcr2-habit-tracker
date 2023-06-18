@@ -1,0 +1,33 @@
+.habit-list-container {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-content: center;
+    border: 4px solid black;
+    place-items: center;
+    width: fit-content;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+
+}
+.habit-list-container h1 {
+    grid-column: 1 / -1;
+    justify-self:center ;
+}
+.icon {
+    font-size: 1.5rem;
+
+}
+.habit-list-container:hover {
+    box-shadow: 1px 1px 4px 5px rgb(166, 166, 166);
+    cursor: pointer;
+}
+.icon1:hover {
+    color: green;
+}
+.icon2:hover {
+    color: red;
+}
+.icon3:hover {
+    color:rgb(139, 22, 248)
+}

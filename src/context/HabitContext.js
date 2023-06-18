@@ -10,7 +10,7 @@ export const HabitProvider=({children})=>
         switch(type)
         {
             case "TOGGLE_MODAL":
-                return {...habit,showModal:payload};    
+                return {...habit,showModal:payload,inputFields:clearInputFields};    
 
             case "INPUT":
                 return {...habit,inputFields:{...habit.inputFields,[input]:payload}}    
