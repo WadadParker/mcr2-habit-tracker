@@ -6,7 +6,7 @@ import { HabitContext } from "../../context/HabitContext";
 export const HabitForm=()=>
 {
     const {state,dispatch}=useContext(HabitContext);
-    const {inputFields,inputFields:{name,repeat,goal,time,date}}=state;
+    const {inputFields,inputFields:{name,repeat,goal,time,date},editHabit}=state;
     return (
         <div className="habit-container">
             <h1>Add new Habit</h1>
@@ -53,7 +53,8 @@ export const HabitForm=()=>
 
             <footer>
             <button className="discard" onClick={()=>dispatch({type:"TOGGLE_MODAL",payload:false})}>Discard</button>
-            <button className="save" onClick={()=>dispatch({type:"ADD_HABIT",payload:inputFields})}>Save</button>
+            {editHabit?<button className="save" onClick={()=>dispatch({type:"UPDATE_HABIT",payload:inputFields})}>Update</button>
+            :<button className="save" onClick={()=>dispatch({type:"ADD_HABIT",payload:inputFields})}>Save</button>}
             </footer>
         </div>
     )
