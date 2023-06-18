@@ -1,0 +1,17 @@
+.archive-list-container {
+    display: grid;
+    list-style: none;
+    grid-template-columns: auto auto;
+    place-items: center;
+    gap:2rem;
+    margin: 2rem;
+}
+.archive-list-item {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    border: 1px solid black;
+    width: fit-content;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}

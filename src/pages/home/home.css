@@ -24,3 +24,11 @@
     background-color: white;
     color: rgb(56, 56, 56);
 }
+.all-habits-container {
+    display: grid;
+    list-style: none;
+    grid-template-columns: auto auto;
+    place-items: center;
+    gap:2rem;
+    margin: 2rem;
+}

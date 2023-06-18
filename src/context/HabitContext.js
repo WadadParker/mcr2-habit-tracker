@@ -16,7 +16,19 @@ export const HabitProvider=({children})=>
                 return {...habit,inputFields:{...habit.inputFields,[input]:payload}}    
             
             case "ADD_HABIT":
-                return {...habit,habitList:[...habit.habitList,payload],inputFields:clearInputFields,showModal:false}    
+                return {...habit,habitList:[...habit.habitList,payload],inputFields:clearInputFields,showModal:false};
+            
+            case "EDIT_HABIT":
+                return {...habit,showModal:true,inputFields:habit.habitList[payload]};
+             
+            case "DELETE_HABIT":
+                const updatedList=habit?.habitList?.filter((item,index)=>index!==payload)
+                return {...habit,habitList:updatedList};
+                
+            case "ARCHIVE_HABIT":
+                const updatedHabitList=habit?.habitList?.filter((item,index)=>index!==payload);
+                const archiveItem=habit.habitList[payload];
+                return {...habit,habitList:updatedHabitList,archiveList:[...habit.archiveList,archiveItem]};    
 
             default:
                 return habit;    
@@ -27,6 +39,7 @@ export const HabitProvider=({children})=>
         habitList:[],
         inputFields:{name:"",repeat:"",goal:"",time:"",date:""},
         showModal:false,
+        archiveList:[],
     }
 
     const [state,dispatch]=useReducer(habitReducer,initialState);

@@ -19,8 +19,7 @@ export const Home=()=>
             <button onClick={()=>dispatch({type:"TOGGLE_MODAL",payload:true})} className="add-habit">Add new Habit</button>
             <button className="archive-button" onClick={()=>navigate("/archive")}>Go to Archive</button>
             {showModal && <HabitForm />}
-            <HabitList />
-            <ul>
+            <ul className="all-habits-container">
                 {habitList?.map((item,index)=>(
                     <li key={index}>
                         <HabitList item={item} index={index} />
